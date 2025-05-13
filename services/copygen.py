@@ -28,3 +28,4 @@ def generate_copy(data):
     )
 
     return {"copy": response.choices[0].message.content.strip()}
+#     return {"copy": response.choices[0].text.strip()}

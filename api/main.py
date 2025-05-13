@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from api.routes.generate import router as generate_router
+from api.routes import generate
 
 app = FastAPI()
 
@@ -8,8 +8,7 @@ def root():
     return {"message": "Lightning Copy Lab is running"}
 
 @app.get("/status")
-def check_status():
+def status():
     return {"status": "Lightning Copy Lab is online"}
 
-# This line is required!
-app.include_router(generate_router)
+app.include_router(generate.router, prefix="")  # No prefix, clean root routes
