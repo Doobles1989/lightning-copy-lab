@@ -3,9 +3,10 @@ from fastapi.responses import JSONResponse
 
 app = FastAPI()
 
-@app.get("/status")
-def check_status():
-    return JSONResponse(content={"status": "Lightning Copy Lab is online"})
 @app.get("/")
 def root():
     return {"message": "Lightning Copy Lab is running"}
+
+@app.get("/status")
+def check_status():
+    return JSONResponse(content={"status": "Lightning Copy Lab is online"})
