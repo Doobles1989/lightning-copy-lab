@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse
+from api.routes.generate import router as generate_router
 
 app = FastAPI()
 
@@ -9,4 +9,7 @@ def root():
 
 @app.get("/status")
 def check_status():
-    return JSONResponse(content={"status": "Lightning Copy Lab is online"})
+    return {"status": "Lightning Copy Lab is online"}
+
+# This line is required!
+app.include_router(generate_router)
