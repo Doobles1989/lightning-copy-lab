@@ -17,15 +17,20 @@ def generate_copy(data):
     except KeyError as e:
         return {"error": f"Missing variable: {str(e)}"}
 
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[
-            {"role": "system", "content": "You're a world-class copywriter."},
-            {"role": "user", "content": prompt}
-        ],
-        temperature=0.7,
-        max_tokens=800
-    )
-
-    return {"copy": response.choices[0].message.content.strip()}
-#     return {"copy": response.choices[0].text.strip()}
+    try:
+        print("Prompt to OpenAI:", prompt)
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "You're a world-class copywriter."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.7,
+            max_tokens=800
+        )
+        return {"copy": response.choices[0].message.content.strip()}
+    except Exception as e:
+        print("OpenAI error:", e)
+        return {"error": str(e)}
+#     return {"error": "An error occurred while generating copy."}
+#     return {"copy": "This is a placeholder response. Replace with actual OpenAI API call."}
