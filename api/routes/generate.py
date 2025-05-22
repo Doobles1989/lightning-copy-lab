@@ -6,4 +6,3 @@ router = APIRouter()
 @router.post("/generate-copy")
 def generate(data: dict = Body(...)):
     return generate_copy(data)
-@router.get("/generate-copy")
