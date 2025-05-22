@@ -32,5 +32,3 @@ def generate_copy(data):
     except Exception as e:
         print("OpenAI error:", e)
         return {"error": str(e)}
-#     return {"error": "An error occurred while generating copy."}
-#     return {"copy": "This is a placeholder response. Replace with actual OpenAI API call."}

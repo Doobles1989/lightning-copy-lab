@@ -11,4 +11,4 @@ def root():
 def status():
     return {"status": "Lightning Copy Lab is online"}
 
-app.include_router(generate.router, prefix="")  # No prefix, clean root routes
+app.include_router(generate.router, prefix="")
