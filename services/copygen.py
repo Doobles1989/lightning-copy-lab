@@ -20,7 +20,7 @@ def generate_copy(data):
     try:
         print("Prompt to OpenAI:", prompt)
         response = openai.ChatCompletion.create(
-            model="gpt-4",
+            model="gpt-3.5-turbo",  # ✅ Fully available to all OpenAI users
             messages=[
                 {"role": "system", "content": "You're a world-class copywriter."},
                 {"role": "user", "content": prompt}
